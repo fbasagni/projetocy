@@ -17,14 +17,14 @@ jobs:
    steps:  
     #clone do projeto  
     - name: Checkout/Clone do projeto
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     ##exemplo de execução terminal
     - name: Instalar dependências do projeto
-      uses: npm install
+      run: npm install
 
     - name: Run Cypress tests
-      uses: cypress-io/github-action@v5
+      uses: cypress-io/github-action@v6
       with:
         record: true
       env:
