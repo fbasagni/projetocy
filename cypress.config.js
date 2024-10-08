@@ -10,7 +10,7 @@ module.exports = defineConfig({
       reportPageTitle: 'Projeto Curso de Cypress'
     },
     baseUrl: 'https://automationpratice.com.br/',
-    defaultCommandTimeout: 5000,
+    defaultCommandTimeout: 6000,
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
