@@ -29,7 +29,7 @@ export default {
     },
           
      preencheSenha(senha){
-         cy.get('#password')
+         cy.get('#passwordX')
            .type(senha)
         
     },    
