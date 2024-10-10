@@ -23,7 +23,7 @@ describe('Cadastro de usuário', () => {
     it('Campo E-mail vazio', () => {
         cadastro_usuario_page.preencheNome(faker.name.fullName())
         cadastro_usuario_page.clicarCadastrar()
-        cadastro_usuario_page.validarMensagemErro('O campo e-mail deve ser preenchido corretamente')
+        cadastro_usuario_page.validarMensagemErro('O campo e-mail deve ser prenchido corretamente')
           
   })
 
@@ -32,7 +32,7 @@ describe('Cadastro de usuário', () => {
         cadastro_usuario_page.preencheNome(faker.name.fullName())
         cadastro_usuario_page.preencheEmail(faker.name.firstName())
         cadastro_usuario_page.clicarCadastrar()
-        cadastro_usuario_page.validarMensagemErro('O campo e-mail deve ser preenchido corretamente')
+        cadastro_usuario_page.validarMensagemErro('O campo e-mail deve ser prenchido corretamente')
        
   })  
 
