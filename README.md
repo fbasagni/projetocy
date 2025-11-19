@@ -1,94 +1,180 @@
-# Projeto de Automação Front-End com Cypress
+# Automação Front-End com Cypress – Projeto de Testes UI
 
+Este repositório reúne um conjunto de testes automatizados desenvolvidos com Cypress para validar fluxos essenciais de uma aplicação web.  
+Ele foi criado com foco em **boas práticas**, **organização**, **clareza** e **simulação real do comportamento do usuário**.
 
-Este projeto tem como objetivo automatizar testes de interface de usuário (UI) utilizando o Cypress, proporcionando uma abordagem prática para a criação de testes automatizados para aplicações web.
+A proposta é demonstrar como estruturo testes de interface (UI) para garantir confiabilidade, repetibilidade e documentação clara para equipes técnicas e não técnicas.
 
-## 📝 Informações
+---
 
-Principais funcionalidades abordadas:
+## 1. Objetivo do Projeto
 
--  Validação de campos de formulário (nome, e-mail, senha).
--  Geração automática de dados fictícios para teste.
--  Fluxos de sucesso e falha de cadastro de usuários.
--  Execução contínua de testes com GitHub Actions.
+O propósito deste projeto é apresentar, de forma simples e didática:
 
+- Como estruturar um projeto de automação front-end com Cypress.
+- Como validar campos, fluxos e regras de negócio.
+- Como utilizar dados fictícios com Faker.js.
+- Como organizar a estrutura dos testes com boas práticas.
+- Como integrar os testes a pipelines de CI (GitHub Actions).
 
-##  💻 Tecnologias Utilizadas
+O conteúdo reflete exatamente a forma como trabalho no dia a dia: organização, foco, clareza e validação real do comportamento do usuário.
 
-- Cypress: Framework de teste end-to-end.
-- JavaScript: Linguagem de programação utilizada nos testes.
-- Faker.js: Biblioteca para gerar dados fictícios durante os testes.
-- GitHub Actions: Integração contínua para execução dos testes automatizados.
+---
 
-##   💾 Instalação
+## 2. Importância do Projeto
 
-### Requisitos;
+Este projeto demonstra princípios fundamentais para qualquer automação eficiente:
 
-- Node.js (v12 ou superior)
+### Comunicação simples e objetiva
+Os cenários são escritos de forma clara para facilitar o entendimento do que está sendo validado.
+
+### Organização com boas práticas
+A estrutura do Cypress segue o padrão recomendado pela ferramenta.
+
+### Dados fictícios com Faker.js
+Isso evita duplicação, melhora a confiabilidade e torna os testes mais dinâmicos.
+
+### Execução contínua com GitHub Actions
+O pipeline executa os testes automaticamente ensuring feedback rápido após cada push ou PR.
+
+### Simulação real de uso
+As validações seguem o fluxo do usuário final, garantindo precisão nos testes.
+
+---
+
+## 3. Tecnologias Utilizadas
+
+- **Cypress** (E2E Testing)
+- **JavaScript**
+- **Node.js**
+- **Faker.js** (geração de dados fictícios)
+- **GitHub Actions** (CI/CD)
+
+---
+
+## 4. Estrutura do Projeto
+
+```plaintext
+projetocy/
+ ├── cypress/
+ │   ├── e2e/
+ │   │   ├── cadastro.cy.js      # Testes de cadastro de usuário
+ │   │   └── login.cy.js         # Testes de login e validação
+ │   ├── fixtures/               # Massa de dados estática
+ │   ├── support/
+ │   │   ├── commands.js         # Comandos customizados
+ │   │   └── e2e.js              # Configurações globais
+ ├── .github/workflows/
+ │   └── cypress-pipeline.yml    # Pipeline de execução automática
+ ├── package.json
+ ├── cypress.config.js
+ └── README.md
+```
+
+## 5. Funcionalidades Automatizadas
+
+Os testes validam pontos críticos da jornada de cadastro e login:
+
+Validação de campos obrigatórios
+
+Comportamentos de erro (e-mail inválido, senha fraca, campos vazios)
+
+Cadastro bem-sucedido
+
+Fluxo de login
+
+Confirmação visual e estrutural dos elementos
+
+Uso de Faker.js para dados dinâmicos
+
+Execução automática com GitHub Actions
+---
+
+## 6. Instalação
+Requisitos
+
+- Node.js (v12+)
 - Cypress (v13.4.1 ou superior)
-- Navegador Google Chrome ou Firefox
+- Google Chrome ou Firefox
 
-### Passos de Instalação
 
-Clone o repositório:
+Passos para Instalar e Executar
 
-bash
-Copiar código
+1. Clone o repositório:
+```plaintext
 git clone https://github.com/fbasagni/projetocy.git
 cd projetocy
-Instale as dependências:
+
+```
+
+2. Instale as dependências:
+```plaintext
+npm install
+
+```
+   
+3. Execute os testes:
+
+Modo interativo (com navegador):
+```plaintext
+npx cypress open
+
+```
+
+Modo headless (CI/CD):
+```plaintext
+npx cypress run
+
+```
 
 
-1. **Clone o repositório:**
+---
 
-   ```bash
-      git clone https://github.com/fbasagni/projetocy.git
-      cd projetocy
+## 7. Modificação dos Testes
 
+Os cenários ficam na pasta:
+```plaintext
+cypress/e2e/
 
-2. **Instale as dependências:**
+```
 
-   ```bash
-      npm install
+Você pode:
 
+ - Criar novos arquivos .cy.js
+ - Alterar steps existentes
+ - Inserir dados via fixtures
+ - Criar comandos no commands.js
 
+---
 
-3. **Configure as variáveis de ambiente (opcional)**
+## 8. Execução Automática com GitHub Actions
 
-   ```bash
-      CYPRESS_RECORD_KEY=your_dashboard_key
+Este projeto já possui pipeline configurado:
+```plaintext
+.github/workflows/cypress-pipeline.yml
 
+```
 
-##  🚀 Uso
-
-Executando os testes localmente:
-
-1. **Para rodar os testes no navegador:**
-
-   ```bash
-      npx cypress open
-
-
-2. **Para rodar os testes em modo headless:**
-
-   ```bash
-      npx cypress run
+O pipeline executa os testes automaticamente a cada push ou pull request na branch principal.
 
 
+---
 
-### Modificação dos testes:
+## 9. Relatórios
 
-Os testes estão localizados na pasta cypress/e2e. Você pode modificá-los ou adicionar novos casos de teste conforme necessário.
+Os relatórios do Cypress são exibidos diretamente no terminal durante a execução.
 
-### Geração de Dados Fictícios:
-
-A biblioteca Faker.js é utilizada para gerar dados fictícios (como nome, e-mail e senha) nos cenários de teste. Isso ajuda a evitar a duplicação de dados de teste.
-
-### Execução Automática com GitHub Actions:
-
-O projeto já está configurado com GitHub Actions para executar os testes automaticamente em cada push ou pull request na branch master. O arquivo de configuração do workflow está localizado em .github/workflows/cypress-pipeline.yml.
+Caso integre com Cypress Dashboard:
+ - Os resultados ficam disponíveis online
+ - Gráficos e histórico de execuções podem ser consultados
+ - Acompanhamento detalhado do comportamento dos testes
 
 
+---
 
-##  📊 Relatórios
-Os relatórios de teste são gerados automaticamente após a execução dos testes. Para visualizar o resultado de cada execução, verifique o relatório gerado pelo Cypress Dashboard (se configurado) ou a saída no terminal.
+
+## 10. Considerações Finais
+
+Este projeto representa uma visão prática de como organizo e desenvolvo automações front-end utilizando Cypress no dia a dia. Ele reúne pontos que considero fundamentais em qualquer trabalho de qualidade: cenários claros, estrutura bem definida, uso eficiente de dados dinâmicos e integração contínua funcionando de forma confiável.
+
+A intenção aqui é demonstrar uma base sólida para automações UI, capaz de evoluir conforme novas necessidades surgirem.
